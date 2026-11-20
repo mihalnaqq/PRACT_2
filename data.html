@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Характеристики танков</title>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html">Главная</a>
+        <a class="active" href="data.html">Характеристики танков</a>
+        <a href="index.html#models">Модели</a>
+        <a href="index.html#news">Новости</a>
+    </nav>
+</header>
+
+<main class="container specifications">
+    <h1>Характеристики танков</h1>
+
+    <details open>
+        <summary><b>График</b></summary>
+
+        <form>
+            <p><b>Значение по оси OX</b></p>
+
+            <p>
+                <input type="radio" id="oxCountry" name="ox" value="country" checked> Страна<br>
+                <input type="radio" id="oxYear" name="ox" value="year"> Год выпуска
+            </p>
+
+            <p><b>Значения по оси OY</b></p>
+
+            <p>
+                <input type="checkbox" id="minSpeed" name="minSpeed" value="minSpeed"> Минимальная скорость<br>
+                <input type="checkbox" id="avgSpeed" name="avgSpeed" value="avgSpeed"> Средняя скорость<br>
+                <input type="checkbox" id="maxSpeed" name="maxSpeed" value="maxSpeed"> Максимальная скорость
+            </p>
+
+            <p><input type="submit" value="Построить"></p>
+        </form>
+    </details>
+
+    <details open>
+        <summary><b>Фильтр</b></summary>
+
+        <form>
+            <p>Название: <input type="text" id="filterName" name="filterName"></p>
+
+            <p>Страна: <input type="text" id="filterCountry" name="filterCountry"></p>
+
+            <p>
+                Год выпуска: от
+                <input type="number" id="yearFrom" name="yearFrom" min="1900" max="2100">
+                до
+                <input type="number" id="yearTo" name="yearTo" min="1900" max="2100">
+            </p>
+
+            <p>
+                Масса, т: от
+                <input type="number" id="weightFrom" name="weightFrom" min="0" max="100" step="0.1">
+                до
+                <input type="number" id="weightTo" name="weightTo" min="0" max="100" step="0.1">
+            </p>
+
+            <p>
+                Скорость, км/ч: от
+                <input type="number" id="speedFrom" name="speedFrom" min="0" max="150">
+                до
+                <input type="number" id="speedTo" name="speedTo" min="0" max="150">
+            </p>
+
+            <p>
+                Орудие, мм: от
+                <input type="number" id="gunFrom" name="gunFrom" min="0" max="200">
+                до
+                <input type="number" id="gunTo" name="gunTo" min="0" max="200">
+            </p>
+
+            <p>
+                Экипаж, чел.: от
+                <input type="number" id="crewFrom" name="crewFrom" min="1" max="10">
+                до
+                <input type="number" id="crewTo" name="crewTo" min="1" max="10">
+            </p>
+
+            <p><input type="submit" value="Найти"></p>
+        </form>
+    </details>
+
+    <details open>
+        <summary><b>Сортировка</b></summary>
+
+        <form>
+            <p>
+                Первый уровень:
+                <select id="sort1" name="sort1">
+                    <option value="none">Нет</option>
+                    <option value="name">Название</option>
+                    <option value="country">Страна</option>
+                    <option value="year">Год выпуска</option>
+                    <option value="weight">Масса</option>
+                    <option value="speed">Скорость</option>
+                    <option value="gun">Орудие</option>
+                    <option value="crew">Экипаж</option>
+                </select>
+                по убыванию?
+                <input type="checkbox" id="desc1" name="desc1">
+            </p>
+
+            <p>
+                Второй уровень:
+                <select id="sort2" name="sort2">
+                    <option value="none">Нет</option>
+                    <option value="name">Название</option>
+                    <option value="country">Страна</option>
+                    <option value="year">Год выпуска</option>
+                    <option value="weight">Масса</option>
+                    <option value="speed">Скорость</option>
+                    <option value="gun">Орудие</option>
+                    <option value="crew">Экипаж</option>
+                </select>
+                по убыванию?
+                <input type="checkbox" id="desc2" name="desc2">
+            </p>
+
+            <p>
+                Третий уровень:
+                <select id="sort3" name="sort3">
+                    <option value="none">Нет</option>
+                    <option value="name">Название</option>
+                    <option value="country">Страна</option>
+                    <option value="year">Год выпуска</option>
+                    <option value="weight">Масса</option>
+                    <option value="speed">Скорость</option>
+                    <option value="gun">Орудие</option>
+                    <option value="crew">Экипаж</option>
+                </select>
+                по убыванию?
+                <input type="checkbox" id="desc3" name="desc3">
+            </p>
+
+            <p><input type="submit" value="Сортировать"></p>
+        </form>
+    </details>
+
+    <br>
+
+    <h2>Таблица характеристик 50 танков</h2>
+    <p>Характеристики указаны ориентировочно и могут отличаться в зависимости от модификации.</p>
+
+    <div class="table-wrap">
+    <table>
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Страна</th>
+                <th>Год выпуска</th>
+                <th>Масса, т</th>
+                <th>Скорость, км/ч</th>
+                <th>Орудие, мм</th>
+                <th>Экипаж, чел.</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Leopard 2A7</td><td>Германия</td><td>2014</td><td>64.5</td><td>68</td><td>120</td><td>4</td></tr>
+            <tr><td>M1A2 Abrams</td><td>США</td><td>1992</td><td>63</td><td>67</td><td>120</td><td>4</td></tr>
+            <tr><td>T-90M</td><td>Россия</td><td>2020</td><td>48</td><td>60</td><td>125</td><td>3</td></tr>
+            <tr><td>Challenger 2</td><td>Великобритания</td><td>1998</td><td>62.5</td><td>59</td><td>120</td><td>4</td></tr>
+            <tr><td>Leclerc</td><td>Франция</td><td>1992</td><td>56.5</td><td>71</td><td>120</td><td>3</td></tr>
+            <tr><td>K2 Black Panther</td><td>Южная Корея</td><td>2014</td><td>55</td><td>70</td><td>120</td><td>3</td></tr>
+            <tr><td>Type 10</td><td>Япония</td><td>2012</td><td>44</td><td>70</td><td>120</td><td>3</td></tr>
+            <tr><td>Type 90</td><td>Япония</td><td>1990</td><td>50</td><td>70</td><td>120</td><td>3</td></tr>
+            <tr><td>Type 99A</td><td>Китай</td><td>2011</td><td>58</td><td>80</td><td>125</td><td>3</td></tr>
+            <tr><td>VT-4</td><td>Китай</td><td>2014</td><td>52</td><td>70</td><td>125</td><td>3</td></tr>
+            <tr><td>T-80U</td><td>СССР</td><td>1985</td><td>46</td><td>70</td><td>125</td><td>3</td></tr>
+            <tr><td>T-72B3</td><td>Россия</td><td>2013</td><td>46.5</td><td>60</td><td>125</td><td>3</td></tr>
+            <tr><td>T-64BV</td><td>СССР</td><td>1985</td><td>42.4</td><td>60</td><td>125</td><td>3</td></tr>
+            <tr><td>T-84 Oplot</td><td>Украина</td><td>1999</td><td>51</td><td>70</td><td>125</td><td>3</td></tr>
+            <tr><td>T-62</td><td>СССР</td><td>1961</td><td>37</td><td>50</td><td>115</td><td>4</td></tr>
+            <tr><td>T-55</td><td>СССР</td><td>1958</td><td>36</td><td>50</td><td>100</td><td>4</td></tr>
+            <tr><td>T-54</td><td>СССР</td><td>1947</td><td>36</td><td>48</td><td>100</td><td>4</td></tr>
+            <tr><td>T-34-85</td><td>СССР</td><td>1944</td><td>32</td><td>55</td><td>85</td><td>5</td></tr>
+            <tr><td>IS-2</td><td>СССР</td><td>1943</td><td>46</td><td>37</td><td>122</td><td>4</td></tr>
+            <tr><td>IS-3</td><td>СССР</td><td>1945</td><td>46.5</td><td>40</td><td>122</td><td>4</td></tr>
+            <tr><td>KV-1</td><td>СССР</td><td>1939</td><td>45</td><td>35</td><td>76</td><td>5</td></tr>
+            <tr><td>Centurion Mk 5</td><td>Великобритания</td><td>1955</td><td>51.8</td><td>35</td><td>84</td><td>4</td></tr>
+            <tr><td>Chieftain Mk 5</td><td>Великобритания</td><td>1970</td><td>55</td><td>48</td><td>120</td><td>4</td></tr>
+            <tr><td>Conqueror</td><td>Великобритания</td><td>1955</td><td>65</td><td>34</td><td>120</td><td>4</td></tr>
+            <tr><td>Churchill VII</td><td>Великобритания</td><td>1944</td><td>40.6</td><td>24</td><td>75</td><td>5</td></tr>
+            <tr><td>Cromwell</td><td>Великобритания</td><td>1944</td><td>28</td><td>64</td><td>75</td><td>5</td></tr>
+            <tr><td>Matilda II</td><td>Великобритания</td><td>1939</td><td>27</td><td>24</td><td>40</td><td>4</td></tr>
+            <tr><td>Comet</td><td>Великобритания</td><td>1944</td><td>33.5</td><td>51</td><td>77</td><td>5</td></tr>
+            <tr><td>Valentine</td><td>Великобритания</td><td>1940</td><td>16</td><td>24</td><td>40</td><td>3</td></tr>
+            <tr><td>M4A3 Sherman</td><td>США</td><td>1942</td><td>33</td><td>48</td><td>75</td><td>5</td></tr>
+            <tr><td>M26 Pershing</td><td>США</td><td>1945</td><td>41.7</td><td>40</td><td>90</td><td>5</td></tr>
+            <tr><td>M46 Patton</td><td>США</td><td>1949</td><td>44</td><td>48</td><td>90</td><td>5</td></tr>
+            <tr><td>M47 Patton</td><td>США</td><td>1951</td><td>46</td><td>48</td><td>90</td><td>5</td></tr>
+            <tr><td>M48 Patton</td><td>США</td><td>1952</td><td>49.6</td><td>48</td><td>90</td><td>4</td></tr>
+            <tr><td>M60</td><td>США</td><td>1960</td><td>46</td><td>48</td><td>105</td><td>4</td></tr>
+            <tr><td>M103</td><td>США</td><td>1957</td><td>62.5</td><td>34</td><td>120</td><td>5</td></tr>
+            <tr><td>M24 Chaffee</td><td>США</td><td>1944</td><td>18.4</td><td>56</td><td>75</td><td>5</td></tr>
+            <tr><td>M41 Walker Bulldog</td><td>США</td><td>1951</td><td>23.5</td><td>72</td><td>76</td><td>4</td></tr>
+            <tr><td>Panzer IV</td><td>Германия</td><td>1937</td><td>25</td><td>40</td><td>75</td><td>5</td></tr>
+            <tr><td>Panther</td><td>Германия</td><td>1943</td><td>44.8</td><td>46</td><td>75</td><td>5</td></tr>
+            <tr><td>Tiger I</td><td>Германия</td><td>1942</td><td>54</td><td>45</td><td>88</td><td>5</td></tr>
+            <tr><td>Tiger II</td><td>Германия</td><td>1944</td><td>69.8</td><td>38</td><td>88</td><td>5</td></tr>
+            <tr><td>Leopard 1</td><td>Германия</td><td>1965</td><td>40</td><td>65</td><td>105</td><td>4</td></tr>
+            <tr><td>AMX-30</td><td>Франция</td><td>1966</td><td>36</td><td>65</td><td>105</td><td>4</td></tr>
+            <tr><td>AMX-13</td><td>Франция</td><td>1952</td><td>14.5</td><td>60</td><td>75</td><td>3</td></tr>
+            <tr><td>Merkava Mk 4</td><td>Израиль</td><td>2004</td><td>65</td><td>64</td><td>120</td><td>4</td></tr>
+            <tr><td>Arjun Mk 1A</td><td>Индия</td><td>2021</td><td>68</td><td>58</td><td>120</td><td>4</td></tr>
+            <tr><td>Al-Khalid</td><td>Пакистан</td><td>2001</td><td>46</td><td>72</td><td>125</td><td>3</td></tr>
+            <tr><td>Altay</td><td>Турция</td><td>2025</td><td>65</td><td>65</td><td>120</td><td>4</td></tr>
+            <tr><td>Strv 103</td><td>Швеция</td><td>1967</td><td>39.7</td><td>50</td><td>105</td><td>3</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <p><a href="index.html">Вернуться на главную страницу</a></p>
+</main>
+
+<footer>
+    <p>© 2026. Группа Б9124-09.03.04. Павленко И. Д.</p>
+    <p>Учебный проект «Мир танков»</p>
+</footer>
+
+</body>
+</html>
